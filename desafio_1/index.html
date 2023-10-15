@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Desafio 1</title>
+</head>
+
+<body>
+  <div data-js="root"></div>
+
+  <script type="text/babel">
+    const Message = ({role, content, src}) => (
+      <div>
+        <div>
+          <img style={{width: 40}} src={role === 'assistant' ? 'assets/icon-bot.png' : 'assets/icon-user.png'} alt="Avatar do perfil"/>
+        </div>
+        <p>{content}</p>  
+      </div>
+    )
+
+    const App = () => (
+      <>
+        <Message role="assistant" content="O trabalho do programador é transformar café em código?"/>
+        <Message role="human" content="Não. É gerar valor."/>
+      </>
+    )
+
+    const container = document.querySelector('[data-js="root"]')
+    const root = ReactDOM.createRoot(container)
+    root.render(<App/>)
+  /*
+  const Product = ({ img, name, description, price }) => (
+    <div className="product">
+      <img src={img} alt={name}/>
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <h4>{price}</h4>
+    </div>
+  )
+
+  const App = () => (
+    <div>
+      <Product
+        img='https://m.media-amazon.com/images/I/61vdNn+737L._AC_SX522_.jpg'
+        name='Teclado e Mouse sem fio Logitech MK235'
+        description='Combo Teclado e Mouse sem fio Logitech MK235 com Conexão USB, Pilhas Inclusas e Layout ABNT2'
+        price='179,00'
+      />
+      <Product 
+        img='https://m.media-amazon.com/images/I/71cnkzw9ORL._AC_SX679_.jpg'
+        name='Suporte para laptop'
+        description='Suporte para computador Riser, suporte de notebook portátil dobrável de alumínio ajustável, compatível com MacBook Air Pro, HP, Lenovo, Dell, mais laptops e tablets de 10 a 15,6 polegadas (prata)'
+        price='43,00'
+      />  
+    </div>
+  )
+  */ 
+
+    /*
+    const App = () => (
+      <>
+        <a id="thumbnail" href="https://youtu.be/_1zSGZTu6io?si=7n_2Imhr3MVV50hf">
+          <div id="overlays">
+            <span
+              id="overlay-text"
+              className="style-scope ytd-thumbnail-overlay-now-playing-renderer">
+              Now playing
+            </span>
+          </div>
+        </a>
+      </>
+    )
+    
+    const App = () => (
+      <>
+        <h1>Burgão do Zé</h1>
+        <p>🎯 Promo toda quarta e quinta</p>
+      </>
+    )
+    */
+  </script>
+</body>
+
+</html>
