@@ -15,29 +15,80 @@
   <div data-js="root"></div>
 
   <script type="text/babel">
-    const Message = ({role, content, src}) => (
-      <div>
-        <div>
-          <img style={{width: 40}} src={role === 'assistant' ? 'assets/icon-bot.png' : 'assets/icon-user.png'} alt="Avatar do perfil"/>
-        </div>
-        <p>{content}</p>  
-      </div>
+    const Avatar = () => 
+      <img 
+        src="https://avatars.githubusercontent.com/u/92958989?v=4" 
+        alt="Jansen"
+        className="avatar"
+      />
+      
+    const Intro = () => (
+      <>
+        <h1>Jansen</h1>
+        <p>
+          Desenvolvedor Frontend, tenho 33 anos, sou casado. 
+          Gosto de tocar bateria, meu esporte favorito é o futebol. 
+          Gosto de filmes e séries também.
+        </p>
+      </>
+    )
+
+    const Skill = ({name, emoji, bgColor}) => 
+    <li className={`skill ${bgColor}`}>
+      {emoji} {name}
+    </li>
+
+    const ListOfSkills = () => (
+      <ul className="list-of-skills">
+        <Skill name='Programação' emoji='👌🏼' bgColor='bg-lightblue'/>
+        <Skill name='Futebol' emoji='🤏🏼' bgColor='bg-yellow'/>
+        <Skill name='Cozinha' emoji='🤏🏼' bgColor='bg-red'/>
+        <Skill name='Bateria' emoji='👌🏼' bgColor='bg-lightblue'/>
+      </ul>
     )
 
     const App = () => (
-      <>
-        <Message role="assistant" content="O trabalho do programador é transformar café em código?"/>
-        <Message role="human" content="Não. É gerar valor."/>
-      </>
-    )
+      <div className="card">
+        <Avatar />
+
+        <div className="info">
+          <Intro />
+          <ListOfSkills />
+        </div>
+      </div>
+    )      
 
     const container = document.querySelector('[data-js="root"]')
     const root = ReactDOM.createRoot(container)
     root.render(<App/>)
+
   /*
-  const Product = ({ img, name, description, price }) => (
+  2) const App = () => (
+      <>
+        <a id="thumbnail" href="https://youtu.be/_1zSGZTu6io?si=7n_2Imhr3MVV50hf">
+          <div id="overlays">
+            <span
+              id="overlay-text"
+              className="style-scope ytd-thumbnail-overlay-now-playing-renderer">
+              Now playing
+            </span>
+          </div>
+        </a>
+      </>
+    )
+
+  3) const App = () => <h1 style={{color: 'lightblue'}}>Burgão do Zé</h1>
+
+  4) const App = () => (
+      <>
+        <h1>Burgão do Zé</h1>
+        <p>🎯 Promo toda quarta e quinta</p>
+      </>
+    )
+
+  5) const Product = ({ img, name, description, price }) => (
     <div className="product">
-      <img src={img} alt={name}/>
+      <img src={img} alt={name} style={{width: 100}}/>
       <h3>{name}</h3>
       <p>{description}</p>
       <h4>{price}</h4>
@@ -60,30 +111,29 @@
       />  
     </div>
   )
-  */ 
 
-    /*
+  6) const Message = ({role, content}) => (
+      <div>
+        <div>
+          <img 
+            src={`./assets/${role === 'assistant' ? 'icon-bot' : 'icon-user'}.png`} 
+            alt="Avatar do perfil" 
+            className="avatar-icon"
+          />
+        </div>
+        <div>
+          <p>{content}</p>
+        </div>  
+      </div>
+    )
+
     const App = () => (
       <>
-        <a id="thumbnail" href="https://youtu.be/_1zSGZTu6io?si=7n_2Imhr3MVV50hf">
-          <div id="overlays">
-            <span
-              id="overlay-text"
-              className="style-scope ytd-thumbnail-overlay-now-playing-renderer">
-              Now playing
-            </span>
-          </div>
-        </a>
+        <Message role="assistant" content="O trabalho do programador é transformar café em código?"/>
+        <Message role="human" content="Não. É gerar valor."/>
       </>
     )
-    
-    const App = () => (
-      <>
-        <h1>Burgão do Zé</h1>
-        <p>🎯 Promo toda quarta e quinta</p>
-      </>
-    )
-    */
+*/
   </script>
 </body>
 
